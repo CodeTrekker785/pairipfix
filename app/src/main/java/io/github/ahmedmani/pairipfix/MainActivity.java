@@ -1,4 +1,4 @@
-package io.github.ahmedmani.pairfix;
+package io.github.ahmedmani.pairipfix;
 
 import android.app.Activity;
 import android.os.Bundle;
