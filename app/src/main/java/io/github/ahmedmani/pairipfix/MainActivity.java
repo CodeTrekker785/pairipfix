@@ -1,4 +1,4 @@
-package io.github.ahmedmani.pairipfix;
+package io.github.ahmedmani.pairfix;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 /**
  * Opens Android's built-in package installer for a user-selected APK.
- * Android shows the confirmation UI; this app does not silently install packages.
+ * Android displays the confirmation UI; this app does not silently install packages.
  */
 public class MainActivity extends Activity {
     private static final int PICK_APK = 4102;
@@ -21,6 +21,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle state) {
         super.onCreate(state);
+        setTitle("Package Installer");
+
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
         root.setGravity(Gravity.CENTER);
@@ -28,14 +30,14 @@ public class MainActivity extends Activity {
         root.setPadding(pad, pad, pad, pad);
 
         TextView title = new TextView(this);
-        title.setText("PairipFix APK Installer");
-        title.setTextSize(24);
+        title.setText("Package Installer");
+        title.setTextSize(26);
         title.setGravity(Gravity.CENTER);
         root.addView(title, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         TextView info = new TextView(this);
-        info.setText("Choose an APK file to open Android's system installer. Installation requires your confirmation and may require allowing this app to install unknown apps in Settings.");
+        info.setText("Select an APK file to install it using Android's system package installer. Review the app and confirm installation on the next screen. You may need to allow this app to install unknown apps in Settings.");
         info.setTextSize(16);
         info.setGravity(Gravity.CENTER);
         LinearLayout.LayoutParams infoParams = new LinearLayout.LayoutParams(
@@ -44,7 +46,7 @@ public class MainActivity extends Activity {
         root.addView(info, infoParams);
 
         Button choose = new Button(this);
-        choose.setText("Select APK and Install");
+        choose.setText("Select APK");
         choose.setOnClickListener(v -> {
             Intent pick = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             pick.addCategory(Intent.CATEGORY_OPENABLE);
